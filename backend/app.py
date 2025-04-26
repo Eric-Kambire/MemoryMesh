@@ -5,11 +5,14 @@ from backend.routes.auth import auth_bp
 from backend.config import Config
 import os
 
+# Définir proprement le chemin absolu de ton frontend
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+FRONTEND_DIR = os.path.join(BASE_DIR, '..', 'frontend')
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    # Initialize extensions
     CORS(app, supports_credentials=True)
     db.init_app(app)
 
@@ -19,26 +22,26 @@ def create_app():
     # Register blueprints
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
 
-    # Serve the static frontend files correctly
+    # Routes pour servir les fichiers frontend
     @app.route('/')
     def serve_index():
-        return send_from_directory('../frontend', 'index.html')
+        return send_from_directory(FRONTEND_DIR, 'index.html')
 
     @app.route('/<path:filename>')
     def serve_static(filename):
-        frontend_path = os.path.join('../frontend', filename)
-        if os.path.exists(frontend_path):
-            return send_from_directory('../frontend', filename)
+        full_path = os.path.join(FRONTEND_DIR, filename)
+        if os.path.exists(full_path):
+            return send_from_directory(FRONTEND_DIR, filename)
         else:
-            abort(404)  # Si le fichier n'existe pas => erreur 404
+            abort(404)
 
     @app.route('/src/<path:path>')
     def serve_src(path):
-        return send_from_directory('../frontend/src', path)
+        return send_from_directory(os.path.join(FRONTEND_DIR, 'src'), path)
 
     @app.route('/public/<path:path>')
     def serve_public(path):
-        return send_from_directory('../frontend/public', path)
+        return send_from_directory(os.path.join(FRONTEND_DIR, 'public'), path)
 
     @app.route('/api/health')
     def health_check():
