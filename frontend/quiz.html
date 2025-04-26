@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemoryMesh - Quiz</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body class="min-h-screen bg-bg-primary">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <svg class="w-8 h-8 text-icon-active mr-2" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                        </svg>
+                        <span class="text-xl font-bold text-text-primary">MemoryMesh</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="calendar.html" class="text-text-primary hover:text-icon-active transition-colors">Calendar</a>
+                    <a href="quiz.html" class="text-icon-active font-medium">Quiz</a>
+                    <a href="dashboard.html" class="text-text-primary hover:text-icon-active transition-colors">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Add margin-top to body content to account for fixed nav -->
+    <div class="mt-20"></div>
+
+    <div class="container mx-auto max-w-3xl p-6">
+        <div class="bg-white rounded-xl shadow-sm p-8">
+            <div class="flex gap-8">
+                <!-- Sidebar -->
+                <div class="w-16">
+                    <div class="space-y-6">
+                        <div class="text-center nav-icon cursor-pointer">
+                            <svg class="w-6 h-6 mx-auto text-icon-active" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                            <p class="text-xs mt-2">Overview</p>
+                        </div>
+                        <div class="text-center nav-icon cursor-pointer">
+                            <svg class="w-6 h-6 mx-auto text-text-secondary" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                            </svg>
+                            <p class="text-xs mt-2">Quizzes</p>
+                        </div>
+                        <div class="text-center nav-icon cursor-pointer">
+                            <svg class="w-6 h-6 mx-auto text-text-secondary" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+                            </svg>
+                            <p class="text-xs mt-2">Schedule</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Content -->
+                <div class="flex-1">
+                    <div class="mb-8">
+                        <h2 class="text-xl font-semibold mb-6">Micro-Quiz</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="p-4 border border-border rounded-lg">
+                                <p class="mb-4">Water is a good conductor of electricity</p>
+                                <div class="flex gap-4">
+                                    <button class="px-4 py-2 bg-accent-primary rounded-lg transition-all hover:bg-opacity-80">True</button>
+                                    <button class="px-4 py-2 border border-border rounded-lg transition-all hover:bg-gray-50">False</button>
+                                </div>
+                            </div>
+
+                            <div class="p-4 border border-border rounded-lg">
+                                <p class="mb-4">In what year did WW1 begin?</p>
+                                <input type="text" class="quiz-input w-full p-2 border border-border rounded-lg" placeholder="Enter your answer" value="1914">
+                            </div>
+
+                            <div class="p-4 border border-border rounded-lg">
+                                <p class="mb-4">What is the capital of Japan?</p>
+                                <input type="text" class="quiz-input w-full p-2 border border-border rounded-lg" placeholder="Enter your answer">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg mb-8">
+                        <div class="flex items-center text-green-600">
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <p class="font-medium">Correct</p>
+                        </div>
+                        <p class="text-green-600 ml-7">Well done!</p>
+                    </div>
+
+                    <button class="w-full bg-accent-primary text-text-primary py-3 rounded-full font-medium hover:bg-opacity-80 transition-all">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="src/js/main.js"></script>
+</body>
+</html>

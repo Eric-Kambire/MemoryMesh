@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemoryMesh - Calendar</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body class="min-h-screen bg-bg-primary">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <svg class="w-8 h-8 text-icon-active mr-2" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                        </svg>
+                        <span class="text-xl font-bold text-text-primary">MemoryMesh</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="calendar.html" class="text-icon-active font-medium">Calendar</a>
+                    <a href="quiz.html" class="text-text-primary hover:text-icon-active transition-colors">Quiz</a>
+                    <a href="dashboard.html" class="text-text-primary hover:text-icon-active transition-colors">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Add margin-top to body content to account for fixed nav -->
+    <div class="mt-20"></div>
+
+    <div class="container mx-auto max-w-3xl p-6">
+        <div class="bg-white rounded-xl shadow-sm p-8">
+            <div class="flex items-center gap-6 mb-8">
+                <div class="flex items-center text-icon-active">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+                    </svg>
+                </div>
+                <nav class="flex gap-8">
+                    <a href="#" class="nav-link text-text-primary font-medium">Overview</a>
+                    <a href="#" class="nav-link active text-text-primary font-medium">Quizzes</a>
+                    <a href="#" class="nav-link text-text-primary font-medium">Schedule</a>
+                </nav>
+            </div>
+
+            <div class="flex gap-8">
+                <div class="flex-1">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-semibold">June 2024</h2>
+                        <div class="flex gap-2">
+                            <button class="p-2 hover:bg-gray-100 rounded-lg transition-all">
+                                <svg class="w-4 h-4 text-text-secondary" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                                </svg>
+                            </button>
+                            <button class="p-2 hover:bg-gray-100 rounded-lg transition-all">
+                                <svg class="w-4 h-4 text-text-secondary" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-7 gap-1 text-center mb-2">
+                        <div class="text-text-secondary text-sm font-medium">Sun</div>
+                        <div class="text-text-secondary text-sm font-medium">Mon</div>
+                        <div class="text-text-secondary text-sm font-medium">Tue</div>
+                        <div class="text-text-secondary text-sm font-medium">Wed</div>
+                        <div class="text-text-secondary text-sm font-medium">Thu</div>
+                        <div class="text-text-secondary text-sm font-medium">Fri</div>
+                        <div class="text-text-secondary text-sm font-medium">Sat</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-7 gap-1">
+                        <!-- Previous month -->
+                        <div class="calendar-day text-gray-400">28</div>
+                        <div class="calendar-day text-gray-400">29</div>
+                        <div class="calendar-day text-gray-400">30</div>
+                        <div class="calendar-day text-gray-400">31</div>
+                        <!-- Current month -->
+                        <div class="calendar-day">1</div>
+                        <div class="calendar-day">2</div>
+                        <div class="calendar-day">3</div>
+                        <div class="calendar-day">4</div>
+                        <div class="calendar-day">5</div>
+                        <div class="calendar-day has-event">6</div>
+                        <div class="calendar-day">7</div>
+                        <div class="calendar-day">8</div>
+                        <div class="calendar-day">9</div>
+                        <div class="calendar-day">10</div>
+                        <div class="calendar-day">11</div>
+                        <div class="calendar-day">12</div>
+                        <div class="calendar-day">13</div>
+                        <div class="calendar-day">14</div>
+                        <div class="calendar-day">15</div>
+                        <div class="calendar-day">16</div>
+                        <div class="calendar-day">17</div>
+                        <div class="calendar-day">18</div>
+                        <div class="calendar-day">19</div>
+                        <div class="calendar-day">20</div>
+                        <div class="calendar-day">21</div>
+                        <div class="calendar-day">22</div>
+                        <div class="calendar-day">23</div>
+                        <div class="calendar-day">24</div>
+                        <div class="calendar-day has-event">25</div>
+                        <div class="calendar-day">26</div>
+                        <div class="calendar-day">27</div>
+                        <div class="calendar-day">28</div>
+                        <div class="calendar-day">29</div>
+                        <div class="calendar-day">30</div>
+                        <!-- Next month -->
+                        <div class="calendar-day text-gray-400">1</div>
+                        <div class="calendar-day text-gray-400">2</div>
+                        <div class="calendar-day text-gray-400">3</div>
+                        <div class="calendar-day text-gray-400">4</div>
+                    </div>
+                </div>
+
+                <div class="w-64 border-l border-gray-200 pl-6">
+                    <h3 class="font-medium mb-6">Upcomming</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-sm font-medium">Tomorrow</p>
+                            <p class="text-sm text-text-secondary">9:20 AM</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium">Wednesday</p>
+                            <p class="text-sm text-text-secondary">9 AM</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium">Saturday</p>
+                            <p class="text-sm text-text-secondary">7:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="src/js/main.js"></script>
+</body>
+</html>
