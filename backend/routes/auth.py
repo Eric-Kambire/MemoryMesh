@@ -1,3 +1,5 @@
+# backend/routes/auth.py
+
 from flask import Blueprint, request, jsonify, session
 from backend.models.user import db, User
 
@@ -31,6 +33,9 @@ def login():
     username = request.form.get('username')
     password = request.form.get('password')
 
+    if not username or not password:
+        return jsonify({'error': 'Missing credentials'}), 400
+
     user = User.query.filter_by(username=username).first()
 
     if user and user.check_password(password):
@@ -38,9 +43,19 @@ def login():
         session['username'] = user.username
         return jsonify({'message': 'Login successful'}), 200
     else:
-        return jsonify({'error': 'Invalid credentials'}), 401
+        return jsonify({'error': 'Invalid username or password'}), 401
 
 @auth_bp.route('/logout', methods=['POST'])
 def logout():
     session.clear()
     return jsonify({'message': 'Logged out successfully'}), 200
+
+@auth_bp.route('/me', methods=['GET'])
+def get_current_user():
+    if 'user_id' in session:
+        return jsonify({
+            'user_id': session['user_id'],
+            'username': session['username']
+        }), 200
+    else:
+        return jsonify({'error': 'Not authenticated'}), 401
