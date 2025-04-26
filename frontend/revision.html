@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MemoryMesh - Manage Revisions</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="src/css/styles.css">
+</head>
+
+<body class="min-h-screen bg-bg-primary">
+
+  <!-- Sidebar + Topbar Injection -->
+  <div id="sidebar"></div>
+  <div id="topbar"></div>
+
+  <!-- Main Content -->
+  <main class="mt-24 ml-24 p-6">
+    <div class="container mx-auto max-w-4xl">
+
+      <div class="bg-white rounded-xl shadow-sm p-8">
+
+        <h2 class="text-2xl font-bold mb-6 text-center">Manage Your Revisions</h2>
+
+        <!-- Create New Revision -->
+        <div class="mb-10">
+          <h3 class="text-lg font-medium mb-2">Create a New Revision</h3>
+          <input id="revision-title" type="text" placeholder="Enter a title (e.g., French Revolution)" class="w-full p-3 mb-4 border rounded-lg">
+          <textarea id="revision-content" placeholder="Paste your notes or summary here..." class="w-full p-3 border rounded-lg h-40"></textarea>
+          <button onclick="createRevision()" class="mt-4 w-full py-3 bg-accent-primary text-text-primary rounded-lg font-medium hover:bg-opacity-80 transition-all">Save Revision</button>
+        </div>
+
+        <hr class="my-10">
+
+        <!-- Existing Revisions -->
+        <div>
+          <h3 class="text-lg font-medium mb-2">Choose an Existing Revision</h3>
+          <select id="existing-revisions" class="w-full p-3 border rounded-lg mb-4">
+            <option value="">-- Select a revision --</option>
+          </select>
+          <button onclick="useRevision()" class="w-full py-3 bg-icon-active text-white rounded-lg font-medium hover:bg-green-600 transition-all">Generate Quiz</button>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="src/js/main.js"></script>
+  <script src="src/js/injectComponents.js"></script>
+
+  <script>
+    // Chargement automatique des révisions existantes
+    document.addEventListener('DOMContentLoaded', () => {
+      loadRevisions();
+    });
+
+    function createRevision() {
+      const title = document.getElementById('revision-title').value.trim();
+      const content = document.getElementById('revision-content').value.trim();
+
+      if (!title || !content) {
+        alert('Please provide both a title and content.');
+        return;
+      }
+
+      const revision = {
+        id: Date.now().toString(),
+        title,
+        content,
+        created_at: new Date().toISOString()
+      };
+
+      const revisions = JSON.parse(localStorage.getItem('revisions') || '[]');
+      revisions.push(revision);
+      localStorage.setItem('revisions', JSON.stringify(revisions));
+
+      alert('Revision saved successfully!');
+      loadRevisions();
+    }
+
+    function loadRevisions() {
+      const revisions = JSON.parse(localStorage.getItem('revisions') || '[]');
+      const select = document.getElementById('existing-revisions');
+
+      select.innerHTML = '<option value="">-- Select a revision --</option>';
+      revisions.forEach(rev => {
+        const option = document.createElement('option');
+        option.value = rev.id;
+        option.text = rev.title;
+        select.appendChild(option);
+      });
+    }
+
+    function useRevision() {
+      const selectedId = document.getElementById('existing-revisions').value;
+      if (!selectedId) {
+        alert('Please select a revision!');
+        return;
+      }
+
+      localStorage.setItem('activeRevision', selectedId);
+      window.location.href = 'quiz.html';
+    }
+  </script>
+
+</body>
+</html>
