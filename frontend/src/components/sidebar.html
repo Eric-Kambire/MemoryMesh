@@ -1,0 +1,61 @@
+<!-- src/components/sidebar.html -->
+
+<div id="sidebar" class="fixed top-0 left-0 h-full w-20 bg-white shadow-lg flex flex-col justify-between py-6 z-50">
+    <!-- Logo -->
+    <div class="flex flex-col items-center space-y-6">
+        <a href="/index.html">
+            <svg class="w-10 h-10 text-icon-active" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                <path d="M12 6a6 6 0 110 12 6 6 0 010-12z"/>
+            </svg>
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="flex flex-col items-center space-y-8 mt-8">
+            <a href="/calendar.html" class="nav-link group">
+                <i class="fas fa-calendar-alt text-2xl group-hover:text-icon-active"></i>
+            </a>
+            <a href="/quiz.html" class="nav-link group">
+                <i class="fas fa-question-circle text-2xl group-hover:text-icon-active"></i>
+            </a>
+            <a href="/dashboard.html" class="nav-link group">
+                <i class="fas fa-chart-bar text-2xl group-hover:text-icon-active"></i>
+            </a>
+            <a href="/rewards.html" class="nav-link group">
+                <i class="fas fa-medal text-2xl group-hover:text-icon-active"></i>
+            </a>
+        </nav>
+    </div>
+
+    <!-- User Menu (Bottom) -->
+    <div class="flex flex-col items-center space-y-6">
+        <button class="focus:outline-none">
+            <i class="fas fa-bell text-2xl text-text-secondary hover:text-icon-active"></i>
+        </button>
+        <a href="/login.html" class="focus:outline-none">
+            <i class="fas fa-sign-out-alt text-2xl text-text-secondary hover:text-icon-active"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Sidebar Mobile Menu Toggle (Optional later) -->
+
+<script>
+    // Script pour activer le lien actif automatiquement
+    document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+            if (window.location.pathname.includes(link.getAttribute('href').split('/').pop())) {
+                link.querySelector('i').classList.add('text-icon-active');
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Styles supplémentaires si nécessaire */
+    .nav-link i {
+        color: #6B7280; /* Gris initial */
+        transition: color 0.2s;
+    }
+</style>

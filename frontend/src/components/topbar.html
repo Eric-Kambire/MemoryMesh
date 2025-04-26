@@ -1,0 +1,31 @@
+<!-- src/components/topbar.html -->
+
+<nav class="fixed top-0 left-20 right-0 bg-white shadow-sm z-40">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center">
+        <svg class="w-8 h-8 text-icon-active mr-2" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+          <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/>
+        </svg>
+        <span class="text-xl font-bold text-text-primary">MemoryMesh</span>
+      </a>
+  
+      <!-- Links -->
+      <div class="flex items-center space-x-8">
+        <a href="calendar.html" class="text-text-primary hover:text-icon-active transition-colors">Calendar</a>
+        <a href="quiz.html" class="text-text-primary hover:text-icon-active transition-colors">Quiz</a>
+        <a href="dashboard.html" class="text-text-primary hover:text-icon-active transition-colors">Dashboard</a>
+  
+        <!-- Notifications + Avatar -->
+        <div class="flex items-center space-x-6">
+          <button class="relative">
+            <i class="fas fa-bell text-text-secondary hover:text-icon-active text-xl"></i>
+            <span class="absolute top-0 right-0 inline-block w-2 h-2 bg-red-500 rounded-full"></span>
+          </button>
+          <img src="public/assets/avatar.png" alt="User Avatar" class="w-8 h-8 rounded-full object-cover">
+        </div>
+      </div>
+    </div>
+  </nav>
+  

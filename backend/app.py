@@ -3,6 +3,7 @@ from flask_cors import CORS
 from backend.models.user import db, User
 from backend.routes.auth import auth_bp
 from backend.config import Config
+from backend.routes.quiz import quiz_bp
 import os
 
 # Définir proprement le chemin absolu de ton frontend
@@ -21,6 +22,8 @@ def create_app():
 
     # Register blueprints
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
+    app.register_blueprint(quiz_bp, url_prefix='/api')
+
 
     # Routes pour servir les fichiers frontend
     @app.route('/')
