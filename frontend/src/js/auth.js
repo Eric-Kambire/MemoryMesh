@@ -23,19 +23,25 @@ document.addEventListener('DOMContentLoaded', function () {
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(loginForm);
+        const formData = {
+            username: loginForm.username.value,
+            password: loginForm.password.value
+        };
 
         try {
             const response = await fetch('/api/auth/login', {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
             });
 
             const data = await response.json();
 
             if (response.ok) {
                 alert('Login successful!');
-                window.location.href = 'dashboard.html'; // Redirect to dashboard
+                window.location.href = 'dashboard.html';
             } else {
                 alert(data.error || 'Login failed.');
             }
@@ -49,19 +55,26 @@ document.addEventListener('DOMContentLoaded', function () {
     signupForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(signupForm);
+        const formData = {
+            username: signupForm.username.value,
+            email: signupForm.email.value,
+            password: signupForm.password.value
+        };
 
         try {
             const response = await fetch('/api/auth/signup', {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
             });
 
             const data = await response.json();
 
             if (response.ok) {
                 alert('Signup successful! You are now logged in.');
-                window.location.href = 'dashboard.html'; // Redirect to dashboard
+                window.location.href = 'dashboard.html';
             } else {
                 alert(data.error || 'Signup failed.');
             }

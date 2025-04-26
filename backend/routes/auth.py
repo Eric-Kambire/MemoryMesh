@@ -1,5 +1,3 @@
-# backend/routes/auth.py
-
 from flask import Blueprint, request, jsonify, session
 from backend.models.user import db, User
 
@@ -7,9 +5,11 @@ auth_bp = Blueprint('auth', __name__)
 
 @auth_bp.route('/signup', methods=['POST'])
 def signup():
-    username = request.form.get('username')
-    email = request.form.get('email')
-    password = request.form.get('password')
+    data = request.get_json()
+
+    username = data.get('username')
+    email = data.get('email')
+    password = data.get('password')
 
     if not username or not email or not password:
         return jsonify({'error': 'Missing fields'}), 400
@@ -30,8 +30,10 @@ def signup():
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
-    username = request.form.get('username')
-    password = request.form.get('password')
+    data = request.get_json()
+
+    username = data.get('username')
+    password = data.get('password')
 
     if not username or not password:
         return jsonify({'error': 'Missing credentials'}), 400
