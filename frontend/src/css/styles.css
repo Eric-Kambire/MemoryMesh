@@ -1,0 +1,154 @@
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F7F9F6;
+    min-height: 100vh;
+}
+
+/* Colors */
+:root {
+    --bg-primary: #F7F9F6;
+    --accent-primary: #C7F0DA;
+    --text-primary: #1F2937;
+    --text-secondary: #6B7280;
+    --icon-active: #4ADE80;
+    --border: #E5E7EB;
+}
+
+/* Navigation */
+.nav-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    z-index: 50;
+}
+
+/* Animations */
+.feature-card {
+    transition: all 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+}
+
+.badge-icon {
+    transition: all 0.2s;
+}
+
+.badge-icon:hover {
+    transform: scale(1.05);
+}
+
+.progress-bar {
+    transition: width 1s ease-in-out;
+}
+
+/* Calendar Specific */
+.calendar-day {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    position: relative;
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.calendar-day:hover {
+    background-color: #F3F4F6;
+}
+
+.calendar-day.has-event {
+    color: var(--icon-active);
+    font-weight: 500;
+}
+
+.calendar-day.has-event::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: var(--icon-active);
+    border-radius: 50%;
+}
+
+/* Quiz Specific */
+.quiz-input {
+    transition: all 0.2s;
+}
+
+.quiz-input:focus {
+    border-color: var(--icon-active);
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+    outline: none;
+}
+
+/* Login/Signup Form */
+.auth-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.auth-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.auth-tab {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.auth-tab.active {
+    color: var(--icon-active);
+    border-bottom: 2px solid var(--icon-active);
+    margin-bottom: -2px;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+}
+
+.auth-input:focus {
+    border-color: var(--icon-active);
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+    outline: none;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--accent-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.auth-button:hover {
+    opacity: 0.9;
+}

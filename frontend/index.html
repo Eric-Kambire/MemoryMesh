@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemoryMesh - Welcome</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body class="min-h-screen bg-bg-primary">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <svg class="w-8 h-8 text-icon-active mr-2" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                        </svg>
+                        <span class="text-xl font-bold text-text-primary">MemoryMesh</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="calendar.html" class="text-text-primary hover:text-icon-active transition-colors">Calendar</a>
+                    <a href="quiz.html" class="text-text-primary hover:text-icon-active transition-colors">Quiz</a>
+                    <a href="dashboard.html" class="text-text-primary hover:text-icon-active transition-colors">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative min-h-screen flex items-center">
+        <!-- Background SVG -->
+        <div class="absolute inset-0 z-0">
+            <img src="public/assets/brain-network.svg" alt="Brain Network Background" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Content -->
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl font-bold text-text-primary mb-6">Master your memory with adaptive quizzes</h1>
+                <p class="text-xl text-text-secondary mb-12">Improve your long-term retention with personalized quizzes based on your performance. Our intelligent system adapts to your learning style.</p>
+                
+                <div class="flex gap-6">
+                    <a href="login.html" class="bg-accent-primary text-text-primary px-8 py-4 rounded-lg font-medium hover:bg-opacity-90 transition-all">
+                        Get Started
+                    </a>
+                    <a href="#features" class="border-2 border-text-primary text-text-primary px-8 py-4 rounded-lg font-medium hover:bg-text-primary hover:text-white transition-all">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="bg-white py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-text-primary text-center mb-16">Why Choose MemoryMesh?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="feature-card p-6 rounded-xl bg-gray-50">
+                    <div class="w-12 h-12 bg-accent-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-xl text-text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Intelligent Learning</h3>
+                    <p class="text-text-secondary">Our system adapts to your learning patterns and creates personalized study schedules.</p>
+                </div>
+
+                <div class="feature-card p-6 rounded-xl bg-gray-50">
+                    <div class="w-12 h-12 bg-accent-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-xl text-text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Track Progress</h3>
+                    <p class="text-text-secondary">Monitor your improvement with detailed analytics and performance insights.</p>
+                </div>
+
+                <div class="feature-card p-6 rounded-xl bg-gray-50">
+                    <div class="w-12 h-12 bg-accent-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-medal text-xl text-text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Earn Rewards</h3>
+                    <p class="text-text-secondary">Stay motivated with achievement badges and progress milestones.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="bg-accent-primary bg-opacity-20 py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-text-primary mb-6">Ready to enhance your learning?</h2>
+            <p class="text-text-secondary mb-8 max-w-2xl mx-auto">Join thousands of students who have improved their retention using MemoryMesh's adaptive learning system.</p>
+            <a href="login.html" class="inline-block bg-accent-primary text-text-primary px-8 py-4 rounded-lg font-medium hover:bg-opacity-90 transition-all">
+                Start Learning Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="src/js/main.js"></script>
+</body>
+</html>
